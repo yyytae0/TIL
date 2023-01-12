@@ -1,7 +1,7 @@
 # What I Learned Today
 
 ## md
- - md 명령어
+ - [md 명령어](md_command.md)
 
 ## GIT
  - git 명령어
