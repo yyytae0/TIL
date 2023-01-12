@@ -1,5 +1,8 @@
 # What I Learned Today
 
+## md
+ - md 명령어
+
 ## GIT
  - git 명령어
  - git 등록 flow
