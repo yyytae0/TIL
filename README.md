@@ -4,7 +4,7 @@
  - [md 명령어](md_command.md)
 
 ## GIT
- - git 명령어
+ - [git 명령어](git_command.md)
  - git 등록 flow
  
 ## 알고리즘
