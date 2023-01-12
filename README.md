@@ -1,1 +1,1 @@
-# What i learned today
+# What I Learned Today
