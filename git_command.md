@@ -34,6 +34,7 @@
   - 복붙
 
 - `git remote add origin ~~`
+  - 원격 연결
   - origin이란 별명의 주소~~
 
 - `git remote -v`
