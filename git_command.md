@@ -48,3 +48,7 @@
 - `git pull'
   - '동기화하기
   - 'origin master'
+
+- `git commit -amend`
+  - 잘못올린 커밋 수정하는 버전 ( push 전에 사용해야함 )
+  - i를 눌러 insert모드로 변경 \> 수정 \> esc로 insert모드 탈출 > :wq로 저장
