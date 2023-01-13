@@ -45,7 +45,7 @@
   - `origin master`
   - `-u origin master` 이후에는 git push만으로 가능
 
-- `git pull'
+- `git pull`
   - '동기화하기
   - 'origin master'
 
