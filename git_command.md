@@ -3,6 +3,7 @@
 
 - `git init`
   - 깃 레포 만들기
+  - git 안에서 다시 init하지 않기 (오류날 수 있음)
 
 - `git add new.txt`
   - commit 전 중간저장
