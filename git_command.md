@@ -44,6 +44,10 @@
   - 업로드하기
   - `origin master`
   - `-u origin master` 이후에는 git push만으로 가능
+ 
+- `git clone ~~`
+  - \~~주소의 git 복사해오기
+  - 이후에는 pull!!
 
 - `git pull`
   - '동기화하기
