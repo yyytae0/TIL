@@ -52,3 +52,7 @@
 - `git commit -amend`
   - 잘못올린 커밋 수정하는 버전 ( push 전에 사용해야함 )
   - i를 눌러 insert모드로 변경 \> 수정 \> esc로 insert모드 탈출 > :wq로 저장
+
+- `touch .gitignore`
+  - 제외할 파일들을 명시할 .gitignore 파일 생성
+  - .gitignore를 메모장으로 열어서 안에 제외할 파일 기입 
