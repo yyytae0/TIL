@@ -61,3 +61,9 @@
   - 제외할 파일들을 명시할 .gitignore 파일 생성
   - .gitignore를 메모장으로 열어서 안에 제외할 파일 기입
   - [gitignore.io](https://www.toptal.com/developers/gitignore/)를 통해 init하자마자 기본내용 
+
+- `git reset --hard ~~~`
+  - \~~~ 라는 난수의 commit시점으로 이동
+
+- `git reflog`
+  - commit 변화 플로우 확인가능 >> commit 시점이동
