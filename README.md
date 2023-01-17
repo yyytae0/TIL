@@ -8,7 +8,7 @@
  - git 등록 flow
  
 ## 알고리즘
- - 백준
+ - [백준](100joon.md)
  - [SWEA](swea.md)
  
 ## Python
