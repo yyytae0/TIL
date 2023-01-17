@@ -9,7 +9,7 @@
  
 ## 알고리즘
  - 백준
- - SWEA
+ - [SWEA](swea.md)
  
 ## Python
  - [파이썬 기초](Day01_파이썬기초.ipynb)
