@@ -14,6 +14,9 @@
 ## Python
  - [파이썬 기초](Day01_파이썬기초.ipynb)
  - [함수의 응용](python_built_in_func.md)
+ - [제어문](Day02_제어문.ipynb)
+ - [함수](Day03_함수.ipynb)
+ - [함수의 응용](Day04_함수응용.ipynb)
  
 ## Java
  - etc
