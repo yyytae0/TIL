@@ -13,6 +13,7 @@
  
 ## Python
  - [파이썬 기초](Day01_파이썬기초.ipynb)
+ - [함수의 응용](python_built_in_func.md)
  
 ## Java
  - etc
