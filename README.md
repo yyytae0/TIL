@@ -17,6 +17,8 @@
  - [제어문](Day02_제어문.ipynb)
  - [함수](Day03_함수.ipynb)
  - [함수의 응용](Day04_함수응용.ipynb)
+ - [데이터 구조1](Day05_데이터구조.ipynb)
+ - [데이터 구조2](Day06_데이터구조.ipynb)
  
 ## Java
  - etc
