@@ -22,5 +22,9 @@
  
 ## Java
  - etc
+
+## Project
+ - 영화 데이터 활용하기
+ - 영화 데이터 api 활용하기
  
 ## ETC
