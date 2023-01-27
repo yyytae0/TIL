@@ -5,7 +5,7 @@
 
 ## GIT
  - [git 명령어](git_command.md)
- - git 등록 flow
+ - [git 등록 flow](git_flow.md)
  
 ## 알고리즘
  - [백준](100joon.md)
