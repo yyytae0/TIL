@@ -19,6 +19,7 @@
  - [함수의 응용](python/Day04_함수응용.ipynb)
  - [데이터 구조1](python/Day05_데이터구조.ipynb)
  - [데이터 구조2](python/Day06_데이터구조.ipynb)
+ - [OOP 기초](python/Day07_OOP_기초.ipynb)
  
 ## Java
  - etc
