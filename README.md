@@ -20,6 +20,7 @@
  - [데이터 구조1](python/Day05_데이터구조.ipynb)
  - [데이터 구조2](python/Day06_데이터구조.ipynb)
  - [OOP 기초](python/Day07_OOP_기초.ipynb)
+ - [OOP 심화](python/Day08_OOP_예외처리.ipynb)
  
 ## Java
  - etc
