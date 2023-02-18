@@ -16,7 +16,7 @@
 
 ### 새로운 환경에서 git 활용
 
-1. git copy url
+1. git clone url
 2. git add .
 3. git commit -m 'message'
 4. git push origin master
