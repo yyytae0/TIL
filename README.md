@@ -21,6 +21,9 @@
  - [데이터 구조2](python/Day06_데이터구조.ipynb)
  - [OOP 기초](python/Day07_OOP_기초.ipynb)
  - [OOP 심화](python/Day08_OOP_예외처리.ipynb)
+
+## web
+ - etc
  
 ## Java
  - etc
@@ -33,9 +36,6 @@
  - 영화 데이터 활용하기
  - 영화 데이터 api 활용하기
  - 버스, 지하철 데이터 활용하기
- 
-## 날짜별 정리
- - 23/01/30
  
 ## ETC
  - git 활용 내용(TIL, 알고리즘, 프로젝트??, 날짜별 정리는??)
