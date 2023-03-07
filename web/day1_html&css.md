@@ -180,7 +180,7 @@ color: blue; : 선언(Declaration)
 - 기본 선택자
   - 전체 선택자(*), 요소(tag) 선택자
   - 클래스(.class) 선택자, 아이디(#id) 선택자, 속성(attr) 선택자
-- 결합자(Comvinators)
+- 결합자(Combinators)
   - 자손 결합자(.box p), 자식 결합자(.box > p)
 
 ### CSS 적용 우선순위(cascading order)

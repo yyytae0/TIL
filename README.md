@@ -23,7 +23,7 @@
  - [OOP 심화](python/Day08_OOP_예외처리.ipynb)
 
 ## web
- - etc
+ - [HTML&CSS](web/day1_html&css.md)
  
 ## Java
  - etc
