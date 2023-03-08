@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .big-box {
+      position: relative;
+      border: 5px solid black;
+      width: 500px;
+      height: 500px;
+      margin: 100px auto 500px;
+    }
+    .small-box {
+      width: 100px;
+      height: 100px;
+    }
+    #red {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      background-color: red;
+    }
+    #gold {
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      background-color: gold;
+    }
+    #green {
+      position: absolute;
+      right: 200px;
+      top: 200px;
+      background-color: green;
+    }
+    #blue {
+      position: relative;
+      left: 100px;
+      top: 100px;
+      background-color: blue;
+    }
+    #pink {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="big-box">
+    <div class="small-box" id="red"></div>
+    <div class="small-box" id="gold"></div>
+    <div class="small-box" id="green"></div>
+    <div class="small-box" id="blue"></div>
+    <div class="small-box" id="pink"></div>
+  </div>
+</body>
+</html>
