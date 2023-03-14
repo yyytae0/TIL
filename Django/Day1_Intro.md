@@ -183,6 +183,12 @@ pip install -r requirements.txt
 ### Project & Application
 - Project
   - "collection of apps"
+  - 프로젝트는 앱의 집합
+  - 프로젝트에는 여러 앱이 포함될 수 있음
+  - 앱은 여러 프로젝트에 있을 수 있음
+- Application
+  - 앱은 실제 요청을 처리하고 페이지를 보여주는 등의 역할을 담당
+  - 앱은 하나의 역할 및 기능 단위로 작성하는 것을 권장함
 
 
 
@@ -200,17 +206,31 @@ MTV
 URL > VIEW > TEMPALTE 데이터 흐름 이해하기
 ### URLs
 ```python
-pass
+# urls.py
+from django.contrib import admin
+from django.urls import path
+from articles import views
+
+urlpatterns = [
+  path('admin/', admin.site.urls),
+  path('articles/', views.index),
+]
+# 마지막에 '/' 꼭 붙여주기
 ```
 
 ### View
 ```python
-pass
+# views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request):
+  return HttpResponse("<h1>hello</h1>")
 ```
+요청이 들어오면 HTML Page로 응답을 돌려준다.
 
 ### Templates
 ```python
-pass
 # 템플릿 폴더 이름은 반드시 templates라고 지정해야 함
 # app_name/templates/app_name 위치에 생성!
 ```
@@ -232,3 +252,8 @@ render(request, template_name, context)
       - 템플릿의 전체 이름 또는 템플릿 이름의 경로
   3. context
       - 템플릿에서 사용할 데이터 (딕셔너리 타입으로 작성)
+
+### 코드 작성순서
+- 앞으로 Django에서의 코드 작성은 URL > View > Template 순으로 작성
+- 데이터의 흐름 순서
+![데이터의 흐름 순서](dataflow1.PNG)
