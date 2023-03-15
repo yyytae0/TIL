@@ -200,7 +200,7 @@ Django의 세가지 구조
 MTV
 - Model(data)
 - View(logic)
-- Template
+- Template(html)
 
 
 URL > VIEW > TEMPALTE 데이터 흐름 이해하기
