@@ -255,7 +255,7 @@ Database API
 - Django가 제공하는 ORM을 사용해 데이터베이스를 조작하는 방법
 - Model을 정의하면 데이터를 만들고 읽고 수정하고 지울 수 있는 API를 제공
 - 구문 : ModelClass.Manager.QuerysetAPI
-  - ex) Articles.objects.all()
+  - ex) Article.objects.all()
 
 objects manager
 - Django 모델이 데이터베이스 쿼리 작업을 가능하게 하는 인터페이스
