@@ -256,4 +256,5 @@ render(request, template_name, context)
 ### 코드 작성순서
 - 앞으로 Django에서의 코드 작성은 URL > View > Template 순으로 작성
 - 데이터의 흐름 순서
-![데이터의 흐름 순서](dataflow1.PNG)
+
+    ![데이터의 흐름 순서](dataflow1.PNG)

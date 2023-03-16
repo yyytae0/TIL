@@ -30,7 +30,7 @@
   - action
   - method
 
-HTML form's attributes
+#### HTML form's attributes
 1. action
   - 입력 데이터가 전송될 URL을 지정
   - 데이터를 어디로 보낼 것인지 지정하는 것이며 이 값은 반드시 유효한 URL이어야 함
@@ -48,7 +48,7 @@ HTML form's attributes
 - 핵심 속성
   - name
 
-HTML input's attribute
+#### HTML input's attribute
 - name
   - form을 통해 데이터를 제출(submit)했을 때 name 속성에 설정된 값을 서버로 전송하고, 서버는 name 속성에 설정된 값을 통해 사용자가 입력한 데이터 값에 접근할 수 있음
   - 서버에 전달하는 파라미터(name은 key, value는 value)로 매핑하는 것
@@ -64,18 +64,18 @@ HTML input's attribute
   - GET, POST, PUT, DELETE
 - GET이 아닌 다른 method는 추후 다시 알아볼 예정
 
-GET
+#### GET
 - 서버로부터 정보를 조회하는 데 사용
   - 즉, 서버에게 리소스를 요청하기 위해 사용
 - 데이터를 가져올 때만 사용해야 함
 - 데이터를 서버로 전송할 때 Query String Parameters를 통해 전송
   - 데이터는 URL에 포함되어 서버로 보내짐
 
-GET 메서드 작성
+#### GET 메서드 작성
 - GET과 get 모두 대소문자 관계없이 동일하게 동작하지만 명시적 표현을 위해 대문자 사용을 권장
 - 데이터를 입력 후 submit 버튼을 누르고 URL의 변화를 확인한다.
 
-Query String Parameters
+#### Query String Parameters
 - 사용자가 입력 데이터를 전달하는 방법 중 하나로, url 주소에 데이터를 파라미터를 통해 넘기는 것
 - 이러한 문자열은 앰퍼샌드(&)로 연결된 key=value 쌍으로 구성되며 기본 URL과 물음표(?)로 구분됨
   - ex) https://host:port/path?key=value&key=value
@@ -113,7 +113,7 @@ Query String Parameters
 ### 개요
 - Model(이하 모델)의 핵심 개념과 ORM을 통한 데이터베이스 조작 이해
 - Django는 웹 애플리케이션의 데이터를 구조화하고 조작하기 위한 추상적인 계층(모델)을 제공
-  
+
 ### Database
 Database
 - 체계화된 데이터의 모임
