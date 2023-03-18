@@ -34,7 +34,7 @@
  - [Model&ORM](Django/Day3_Model%26ORM.md)
  
 ## JavaScript
- - etc
+ - [Intro](javascript/Intro.md)
  
 ## SQL
  - 추천교재
