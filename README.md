@@ -24,6 +24,9 @@
 
 ## web
  - [HTML&CSS](web/day1_html&css.md)
+ - [CSS](web/day2_css.md)
+ - [web layout](web/day3_web_layout.md)
+ - [bootstrap](web/day4_bootstrap.md)
  
 ## Java
  - etc
