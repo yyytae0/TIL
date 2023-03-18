@@ -27,8 +27,13 @@
  - [CSS](web/day2_css.md)
  - [web layout](web/day3_web_layout.md)
  - [bootstrap](web/day4_bootstrap.md)
+
+## Django
+ - [Intro](Django/Day1_Intro.md)
+ - [MTV&URLs](Django/Day2_MTV%26URLs.md)
+ - [Model&ORM](Django/Day3_Model%26ORM.md)
  
-## Java
+## JavaScript
  - etc
  
 ## SQL
