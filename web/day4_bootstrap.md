@@ -31,8 +31,12 @@ rem : 브라우저 html font-size에 비례(기본값 : 16px)
 
 - t, b, s, e, y, x : top, bottom, left, right, top&bottom, left&right
 
+### Components
+- 미리 완성되어 있는 기능!!
+
 ### 반응형 웹(Responsive Web)
  - 부트스트랩 쓰는 가장 큰 이유 중 하나
+ - 다양한 화면 크기를 가진 디바이스들이 등장함에 따라 등장한 개념
 
 -----------------
 ## Bootstrap Grid System
