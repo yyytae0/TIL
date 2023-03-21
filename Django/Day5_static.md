@@ -32,17 +32,17 @@
 - 비슷한 이름의 필드 탑입을 많이 가지고 있다.(다만 이름만 같을 뿐 같은 필드는 아님)
 - Model과 마찬가지로 상속을 통해 선언(forms 라이브러리의 Form 클래스를 상속받음)
 - 앱 폴더에 forms.py를 생성 후 ArticleForm Class 선언
-  ```python
-  # articles/forms.py
-  from django import forms
+```python
+# articles/forms.py
+from django import forms
 
-  class ArticleForm(forms.Form):
-    title = forms.CharField(max_length=10)
-    content = forms.CharField()
-  # Form Class를 forms.py에 작성하는 것은 규약이 아니다.
-  # 파일 이름이 달라도 되고 models.py나 다른 어디에도 작성 가능
-  # 다만 더 나은 유지보수의 관점 그리고 관행적으로 forms.py 파일 안에 작성하는 것을 권장
-  ```
+class ArticleForm(forms.Form):
+  title = forms.CharField(max_length=10)
+  content = forms.CharField()
+# Form Class를 forms.py에 작성하는 것은 규약이 아니다.
+# 파일 이름이 달라도 되고 models.py나 다른 어디에도 작성 가능
+# 다만 더 나은 유지보수의 관점 그리고 관행적으로 forms.py 파일 안에 작성하는 것을 권장
+```
 - form에는 model field와 달리 TextField가 존재하지 않음
 - 모델의 TextField처럼 사용하려면 어떻게 작성 할 수 있을지는 나중에 알아볼 예정
 
