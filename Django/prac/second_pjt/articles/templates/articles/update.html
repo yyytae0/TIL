@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>New</h1>
+  <h1>UPDATE</h1>
   <hr>
-  <form action="{% url 'articles:create' %}" method="POST">
+  <form action="{% url 'articles:update' article.pk %}" method="POST">
     {% csrf_token %}
 
     {{form.as_p}}
     <input type="submit" value="제출">
   </form>
+  <hr>
+  <a href="{% url 'articles:index' %}">[back]</a>
 {% endblock content %}

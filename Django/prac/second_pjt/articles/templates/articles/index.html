@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Articles</h1>
-  <a href="{% url 'articles:new' %}"></a>
+  <a href="{% url 'articles:create' %}">작성하기</a>
   <hr>
   {% for article in articles %}
     <p>글번호 : {{article.id}}</p>
