@@ -32,17 +32,17 @@
 - 비슷한 이름의 필드 탑입을 많이 가지고 있다.(다만 이름만 같을 뿐 같은 필드는 아님)
 - Model과 마찬가지로 상속을 통해 선언(forms 라이브러리의 Form 클래스를 상속받음)
 - 앱 폴더에 forms.py를 생성 후 ArticleForm Class 선언
-    ```python
-    # articles/forms.py
-    from django import forms
+  ```python
+  # articles/forms.py
+  from django import forms
 
-    class ArticleForm(forms.Form):
-      title = forms.CharField(max_length=10)
-      content = forms.CharField()
-    # Form Class를 forms.py에 작성하는 것은 규약이 아니다.
-    # 파일 이름이 달라도 되고 models.py나 다른 어디에도 작성 가능
-    # 다만 더 나은 유지보수의 관점 그리고 관행적으로 forms.py 파일 안에 작성하는 것을 권장
-    ```
+  class ArticleForm(forms.Form):
+    title = forms.CharField(max_length=10)
+    content = forms.CharField()
+  # Form Class를 forms.py에 작성하는 것은 규약이 아니다.
+  # 파일 이름이 달라도 되고 models.py나 다른 어디에도 작성 가능
+  # 다만 더 나은 유지보수의 관점 그리고 관행적으로 forms.py 파일 안에 작성하는 것을 권장
+  ```
 - form에는 model field와 달리 TextField가 존재하지 않음
 - 모델의 TextField처럼 사용하려면 어떻게 작성 할 수 있을지는 나중에 알아볼 예정
 
@@ -146,16 +146,16 @@ class ArticleForm(forms.ModelForm):
   - 참조하는 모델에 정의된 field 정보를 Form에 적용함
 - fields 속성에 '\_\_all__'를 사용하여 모델의 모든 필드를 포함할 수 있음
 - 또는 exclude 속성을 사용하여 모델에서 포함하지 않을 필드를 지정할 수 있음
-  ```python
-  class Meta:
-    model = Article
-    fields = '__all__'
+```python
+class Meta:
+  model = Article
+  fields = '__all__'
 
-  class Meta:
-    model = Article
-    exclude = ('title',)
-  # fields와 exclude를 함께 작성해도 되나 권장하지 않음
-  ```
+class Meta:
+  model = Article
+  exclude = ('title',)
+# fields와 exclude를 함께 작성해도 되나 권장하지 않음
+```
 ### 주의사항
 - Meta 클래스는 왜 여기에 작성할까...
   - 파이썬의 문법적 개념으로 접근하지 말 것
@@ -287,10 +287,10 @@ class ArticleForm(forms.ModelForm):
 2. settings.py에서 STATIC_UTL 정의하기
 3. 앱의 static 폴더에 정적 파일을 위치하기( ex) my_app/static/sample.jpg )
 4. 템플릿에서 static 템플릿 태그를 사용하여 지정된 경로에 있는 정적 파일의 URL 만들기
-    ```html
-    {% load static %}
-    <img src="{% static 'sample.jpg' %}" alt="sample">
-    ```
+  ```html
+  {% load static %}
+  <img src="{% static 'sample.jpg' %}" alt="sample">
+  ```
 - load tag
   - 특정 라이브러리, 패키지에 등록된 모든 템플릿 태그와 필터를 로드
 - static tag
@@ -321,9 +321,9 @@ class ArticleForm(forms.ModelForm):
    - 개발 단계에서는 실제 정적 파일들이 저장되어 있는 app/static/ 경로(기본 경로) 및 STATICFILES_DIRS에 정의된 추가 경로들을 탐색
    - **실제 파일이나 디렉토리가 아니며, URL로만 존재**
    - 비어 있지 않은 값으로 설정한다면 반드시 '/'로 끝나야 함
-      ```python
-      STATIC_URL = '/static/'
-      ```
+    ```python
+    STATIC_URL = '/static/'
+    ```
 
 ### static file 가져오기
 1. 기본경로에 있는 static file 가져오기
