@@ -77,9 +77,9 @@ def create(request):
 #### Form rendering options
 - \<label> & \<input> 쌍에 대한 3가지 출력 옵션
 - 각각 p, li, tr 태그로 감싸져서 렌더링
-  1. as_p()
-  2. as_ul() : ul태그는 직접 작성해야 한다.
-  3. as_table()
+  - as_p()
+  - as_ul() : ul태그는 직접 작성해야 한다.
+  - as_table()
 - 특별한 상황이 아니면 as_p()만 사용
 
 #### Django의 2가지 HTML input 요소 표현
@@ -144,7 +144,7 @@ class ArticleForm(forms.ModelForm):
 - ModelForm의 정보를 작성하는 곳
 - ModelForm을 사용할 경우 참조할 모델이 있어야 하는데, Meta class의 model 속성이 이를 구성함
   - 참조하는 모델에 정의된 field 정보를 Form에 적용함
-- fields 속성에 '__all__'를 사용하여 모델의 모든 필드를 포함할 수 있음
+- fields 속성에 '\_\_all__'를 사용하여 모델의 모든 필드를 포함할 수 있음
 - 또는 exclude 속성을 사용하여 모델에서 포함하지 않을 필드를 지정할 수 있음
   ```python
   class Meta:
@@ -245,6 +245,18 @@ class ArticleForm(forms.ModelForm):
 2. 
 ```python
 class ArticleForm(forms.ModelForm):
+  title = forms.CharField(
+    label = '제목',
+    widget=forms.TextInput(
+      attrs={
+        'class': 'my-title',
+        'placeholder': 'Enter the title',
+      }
+    )
+  )
+  class Meta:
+    model = Article
+    fields = '__all__'
   
 ```
 
@@ -252,7 +264,7 @@ class ArticleForm(forms.ModelForm):
 ### Static file
 - 응답할 때 별도의 처리 없이 파일 내용을 그대로 보여주면 되는 파일
   - 사용자의 요청에 따라 내용이 바뀌는 것이 아니라 요청한 것을 그대로 보여주는 파일
-- **파일 자체가 고정**되어 있고, 서비스 중에도 추가되거나 변경되지 않고 고정 되어있음
+- **파일 자체가 고정**되어 있고, 서비스 중에도 추가되거나 **변경되지 않고 고정** 되어있음
   - 예를 들어, 웹 사이트는 일반적으로 이미지, 자바스크립트 또는 CSS와 같은 미리 준비된 추가 파일(움직이지 않는)을 제공해야 함
 - DJango에서는 이러한 파일들을 'static file'이라 함
   - Django는 staticfiles앱을 통해 정적 파일과 관련된 기능을 제공
@@ -288,15 +300,20 @@ class ArticleForm(forms.ModelForm):
 1. STATIC_ROOT
    - Default: None
    - Django 프로젝트에서 사용하는 모든 정적 파일을 한 곳에 모아 넣는 경로
-   - collectstatic이 배포를 위해 정적 파일을 수집하는 디렉토리의 절대 경로
-   - 개발 과정에서 settings.py의 DEBUG 값이 True로 설정되어 있으면 해당 값은 작용되지 않음
+   - **collectstatic**이 배포를 위해 정적 파일을 수집하는 디렉토리의 절대 경로
+   - **개발 과정에서 settings.py의 DEBUG 값이 True로 설정되어 있으면 해당 값은 작용되지 않음**
    - 실 서비스 환경(배포 환경)에서 Django의 모든 정적 파일을 다른 웹 서버가 직접 제공하기 위해 사용
    - 배포환경에서는 Django를 직접 실행하는 것이 아니라, 다른 서버에 의해 실행되기 때문에 실행하는 다른 서버는 Django에 내장되어 있는 정적 파일들을 인식하지 못함(내장되어 있는 정적 파일들을 밖으로 꺼내는 이유)
 
 2. STATICFILES_DIRS
    - Default: [](Empty list)
-   - app/static/ 디렉토리 경로를 사용하는 것(기본 경로)외에 추가적인 정적 파일 경로 목록을 정의하는 리스트
+   - **app/static/** 디렉토리 경로를 사용하는 것(기본 경로)외에 추가적인 정적 파일 경로 목록을 정의하는 리스트
    - 추가 파일 디렉토리에 대한 전체 경로를 포함하는 문자열 목록으로 작성되어야 함
+    ```python
+    STATICFILES_DIRS = [
+      BASE_DIR / 'static',
+    ]
+    ```
 
 3. STATIC_URL
    - Default: None
@@ -304,6 +321,18 @@ class ArticleForm(forms.ModelForm):
    - 개발 단계에서는 실제 정적 파일들이 저장되어 있는 app/static/ 경로(기본 경로) 및 STATICFILES_DIRS에 정의된 추가 경로들을 탐색
    - **실제 파일이나 디렉토리가 아니며, URL로만 존재**
    - 비어 있지 않은 값으로 설정한다면 반드시 '/'로 끝나야 함
+      ```python
+      STATIC_URL = '/static/'
+      ```
+
+### static file 가져오기
+1. 기본경로에 있는 static file 가져오기
+   - articles/static/articles 경로에 이미지 파일 배치하기
+   - static tag를 사용해 이미지 파일 출력하기
+2. 추가경로에 있는 static file 가져오기
+   - 추가경로 작성
+   - static/ 경로에 이미지 파일 배치하기
+   - static tag를 사용해 이미지 파일 출력하기
 
 
 ### Media Files
@@ -323,3 +352,117 @@ FileField()
 FileField/ImageField를 사용하기 위한 단계
 1. settings.py에 MEDIA_ROOT, MEDIA_URL 설정
 2. upload_to 속성을 정의하여 업로드 된 파일에 사용할 MEDIA_ROOT의 하위 경로를 지정(선택사항)
+
+MEDIA_ROOT
+- Default: ''(Empty string)
+- 사용자가 업로드 한 파일(미디어 파일)들을 보관할 디렉토리의 절대 경로
+- Django는 성능을 위해 업로드 파일은 데이터베이스에 저장하지 않음
+  - 데이터베이스에 저장되는 것은 "파일 경로"
+- MEDIA_ROOT는 STATIC_ROOT와 반드시 다른 경로로 지정해야 함
+
+MEDIA_URL
+- Default: ''(Empty string)
+- MEDIA_ROOT에서 제공되는 미디어 파일을 처리하는 URL
+- 업로드 된 파일의 주소(URL)를 만들어 주는 역할
+  - 웹 서버 사용자가 사용하는 public URL
+- 비어 있지 않은 값으로 설정 한다면 반드시 '/'로 끝나야함
+- MEDIA_URL은 STATIC_URL과 반드시 다른 경로로 지정해야 함
+
+개발 단계에서 사용자가 업로드한 미디어 파일 제공하기
+```python
+# articles/urls.py
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+  ...
+] + static(settings.MEDIA_URL, document_root=setting.MEDIA_ROOT)
+```
+- 사용자로부터 업로드 된 파일이 프로젝트에 업로드 되고나서, 실제로 사용자에게 제공하기 위해서는 업로드 된 파일의 URL이 필요함
+  - 업로드 된 파일의 URL == settings.MEDIA_URL
+  - 위 URL을 통해 참조하는 파일의 실제 위치 == settings.MEDIA_ROOT
+
+### Media File 사용하기
+#### CREATE
+```python
+# articles/models.py
+
+class Article(models.Model):
+  title = models.CharField(max_length=20)
+  content = models.TextField()
+  image = models.ImageField(blank=True)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+# 기존 컬럼 사이에 작성해도 실제 테이블에 추가될 때는 가장 우측에 추가됨
+```
+blank
+- Default: False
+- True인 경우 필드를 비워 둘 수 있음
+  - 이럴 경우DB에는 ''(빈 문자열)이 저장됨
+- 유효성 검사에서 사용됨(is_valid)
+  - Validation-related
+  - 필드에 blank=True가 있으면 form 유효성 검사에서 빈 값을 입력할 수 있음
+
+null
+- Default: False
+- True인 경우 Django는 빈 값을 DB에 NULL로 저장함
+  - Database-related
+- 주의사항
+  - **CharField, TextField와 같은 문자열 기반 필드에는 null 옵션 사용을 피해야 함**
+  - 문자열 기반 필드에 null=True로 설정 시 데이터 없음에 대한 표현이 2가지가 생김
+  - Django는 문자열 기반 필드에서 NULL이 아닌 빈 문자열을 사용하는 것이 규칙
+
+Migrations
+- ImageField를 사용하려면 반드시 pillow 라이브러리가 필요
+- pillow 설치 없이는 makemigrations 실행 불가
+- pillow
+  - 광범위한 파일 형식 지원, 효율적이고 강력한 이미지 처리 기능을 제공하는 라이브러리
+  - 이미지 처리 도구를 위한 견고한 기반을 제공
+
+파일 또는 이미지 업로드 시에는 form 태그에 enctype 속성을 다음과 같이 변경해야 한다.
+```html
+<form action="url" method="POST" enctype="multipart/form-data">
+```
+파일 및 이미지는 request의 POST 속성 값으로 넘어가지 않고 FILES 속성 값에 담겨 넘어간다.
+```python
+# articles/views.py
+
+def create(request):
+  if request.method == 'POST':
+    form = ArticleForm(request.POST, request.FILES)
+  ...
+```
+이후 게시글을 작성하면 이미지를 첨부하지 않으면 blank=True 속성으로 인해 빈 문자열이 저장되고, 이미지를 첨부한 경우는 MEDIA_ROOT 경로에 이미지가 업로드 된다. (DB에는 파일자체가 아닌 경로가 저장된다!!)
+
+만약 같은 이름의 파일을 업로드 한다면 Django는 파일 이름 끝에 임의의 난수 값을 붙여 저장한다.
+
+#### READ
+```html
+<!-- articles/detail.html -->
+<!-- 업로드 된 파일의 상대 URL은 Django가 제공하는 url속성을 통해 얻을 수 있음 -->
+{% block content %}
+  {% if article.image %} <!-- 이미지 데이터가 있는 경우만 이미지 출력할 수 있도록 처리 -->
+    <img src="{{ article.image.url }}">
+  {% endif %}
+  ...
+<!-- article.image.url : 업로드 파일의 경로 -->
+<!-- article.image : 업로드 파일의 파일 이름 -->
+```
+
+#### UPDATE
+```html
+<!-- articles/update.html -->
+<!-- enctype 속성값 추가 -->
+{% block content %}
+  <form action="url" method="POST" enctype="multipart/form-data">
+```
+```python
+# articles/views.py
+# 이미지 파일이 담겨있는 request.FILES 추가 작성
+
+def update(request, pk):
+  article = Article.objects.get(pk=pk)
+  if request.user == article.user:
+    if request.method == 'POST':
+      form = ArticleForm(request.POST, request.FILES, instance=article)
+```
