@@ -32,11 +32,11 @@
 - 프로젝트 시작 시 설정하기 위한 것이며, 참조하는 모델은 첫 번째 마이그레이션에서 사용할 수 있어야 함
   - 즉, 첫번째 마이그레이션 전에 확정 지어야 하는 값
 - 다음과 같은 기본 값을 가지고 있음
-    ```python
-    # settings.py
+```python
+# settings.py
 
-    AUTH_USER_MODEL = 'auth.User'
-    ```
+AUTH_USER_MODEL = 'auth.User'
+```
 
 ### How to substituting a custom User model
 대체하기
@@ -85,7 +85,7 @@ admin.site.register(User, UserAdmin)
 - Django는 새 프로젝트를 시작하는 경우 비록 기본 User 모델이 충분 하더라도 커스텀 User 모델을 설정하는 것을 강력하게 권장(highly recommended)
 - 커스텀 User 모델은 기본 User 모델과 동일하게 작동하면서도 필요한 경우 나중에 맞춤 설정할 수 있기 때문
   - 단, User 모델 대체 작업은 프로젝트의 모든 migrations 혹은 첫 migrate를 실행하기 전에 이 작업을 마쳐야 함
-
+--------------------------
 ## HTTP
 ### HTTP
 - Hyper Text Transfer Protocol
