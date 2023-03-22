@@ -4,7 +4,7 @@
 - Custom User Model
 - 쿠키(Cookie)와 세션(Session)
 - Django Auth System
-
+---------------------------
 ## 인증과 권한
 ### 개요
 - Django authentication system(인증 시스템)은 인증(Authentication)과 권한(Authorization)부여를 함께 제공(처리)하며, 이러한 기능을 일반적으로 인증 시스템이라고 함
@@ -16,7 +16,7 @@
 - Authorization(권한, 허가)
   - 권한 부여
   - 인증된 사용자가 수행할 수 있는 작업을 결정
-
+-------------------------------------
 ## Custom User model
 ### 개요
 - Custom User Model로 대체하기
@@ -112,7 +112,7 @@ admin.site.register(User, UserAdmin)
 ### 어떻게 로그인 상태를 유지할까?
 - 우리가 로그인을 하고 웹 사이트를 사용할 때 페이지를 이동해도 로그인 '상태'가 유지됨
 - 서버와 클라이언트 간 지속적인 상태 유지를 위해 '**쿠키**'와 '**세션**'이 존재
-
+----------------------------
 ## 쿠키(Cookie)
 ### 개요
 - HTTP 쿠키는 상태가 있는 세션을 만들도록 해 줌
@@ -161,7 +161,7 @@ admin.site.register(User, UserAdmin)
 ### Authentication in Web requests
 개요
 - Django가 제공하는 인증 관련 built-in forms 익히기
-
+-----------------------
 ## 로그인
 ### 개요
 - 로그인은 Session을 Create하는 과정
@@ -244,10 +244,6 @@ def login(request):
 - AuthenticationForm의 인스턴스 메서드
 - 유효성 검사를 통과했을 경우 로그인 한 사용자 객체를 반환
 
-### 세션 데이터 확인하기
-
-
-
 ### Authentication with User
 개요
 - 템플릿에서 인증 관련 데이터를 출력하는 방법
@@ -260,17 +256,17 @@ def login(request):
 - 어떻게 base 템플릿에서 context 데이터 없이 user 변수를 사용할 수 있을까?
   - settings.py의 context processors 설정 값 때문
 
-### context processors
+context processors
 - 템플릿이 렌더링 될 때 호출 가능한 컨텍스트 데이터 목록
 - 작성된 컨텍스트 데이터는 기본적으로 템플릿에서 사용 가능한 변수로 포함됨
 - 즉, django에서 자주 사용하는 데이터 목록을 미리 템플릿에 로드 해 둔 것
 - 현재 user 변수를 담당하는 프로세서는 django.contrib.auth.context_processors.auth
 
-### django.contrib.auth.context_processors.auth
+django.contrib.auth.context_processors.auth
 - 현재 로그인한 사용자를 나타내는 User 클래스의 인스턴스가 템플릿 변수 {{ user }}에 저장됨
   - 클라이언트가 로그인하지 않은 경우 AnonymousUser 클래스의 인스턴스로 생성
-
-## Logout
+----------------
+## 로그아웃
 ### 개요
 - 로그아웃은 Session을 Delete하는 과정
 
