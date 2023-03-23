@@ -29,7 +29,7 @@
 
 #### Form Class 선언
 - Form class를 선언하는 것은 Model Class를 선언하는 것과 비슷하다.
-- 비슷한 이름의 필드 탑입을 많이 가지고 있다.(다만 이름만 같을 뿐 같은 필드는 아님)
+- 비슷한 이름의 필드 타입을 많이 가지고 있다.(다만 이름만 같을 뿐 같은 필드는 아님)
 - Model과 마찬가지로 상속을 통해 선언(forms 라이브러리의 Form 클래스를 상속받음)
 - 앱 폴더에 forms.py를 생성 후 ArticleForm Class 선언
 ```python

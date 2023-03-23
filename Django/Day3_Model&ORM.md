@@ -58,7 +58,7 @@
   - HTML 문서와 같은 리소스(데이터, 자원)들을 가져올 수 있도록 해주는 프로토콜(규칙, 규약)
 - 웹에서 이루어지는 모든 데이터 교환의 기초
 - HTTP는 주어진 리소스가 수행 할 원하는 작업을 나타내는 request methods를 정의
-- 자원에 대한 행위(수행하고자 하는 동작)를 정희
+- 자원에 대한 행위(수행하고자 하는 동작)를 정의
 - 주어진 리소스(자원)에 수행하길 원하는 행동을 나타냄
 - HTTP Method 예시
   - GET, POST, PUT, DELETE
@@ -86,7 +86,6 @@
 - 파라미터가 여러 개일 경우 '&'를 붙여 여러 개의 파라미터를 넘길 수 있음
 
 ### Retrieving the data(Server)
-#### Retrieving the data(Server)
 - '데이터 가져오기(검색하기)'
 - 서버는 클라이언트로 받은 key-value 쌍의 목록과 같은 데이터를 받게 됨
 - 이러한 목록에 접근하는 방법은 사용하는 특정 프레임워크에 따라 다름
@@ -183,7 +182,7 @@ Model 작성하기
 Django Model Field
 - django는 모델 필드를 통해 테이블의 필드(컬럼)에 저장할 데이터 유형(INT, TEXT 등)을 정의
 - 데이터 유형에 따라 다양한 모델 필드를 제공
-  - ex) DataField(), CharFiesd(), IntegerField()
+  - ex) DataField(), CharField(), IntegerField()
 - CharField(max_length=None, **options)
   - 길이의 제한이 있는 문자열을 넣을 때 사용
   - max_length
@@ -315,7 +314,7 @@ CRUD
 - QuerySet API method를 사용해 데이터를 다양하게 조회하기
 - QuerySet API method는 크게 2가지로 분류됨
   - Methods that 'return new querysets'
-  - Methods that 'do not retusn querysets'
+  - Methods that 'do not return querysets'
   
 all()
 - QuerySet return
