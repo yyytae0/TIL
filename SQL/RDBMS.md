@@ -214,5 +214,3 @@ select employee_id, first_name, department_id, salary
 from employees
 order by department_id, salary desc;
 ```
-
-
