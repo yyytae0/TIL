@@ -25,3 +25,28 @@ const a = 1, b = 2;
 const array = [1, 2, 3];
 array[2] = 4;
 ```
+
+## 데이터 타입
+### 숫자
+변수에 값을 바로 대입
+```javascript
+let value = 1;
+```
+### 문자열
+작은 따옴표 혹은 큰 따옴표로 감싸서 선언
+```javascript
+lst text = 'hello';
+```
+### 참/거짓(boolean)
+```javascript
+let good = true;
+let bad = false;
+```
+### null과 undefined
+자바스크립트에서 '없음'을 의미하는 데이터 타입
+```javascript
+// null은 값이 없음을 의미
+const friend = null;
+// undefined는 값이 설정되지 않음을 의미
+let friend;
+``` 
