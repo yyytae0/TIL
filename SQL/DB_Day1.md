@@ -5,7 +5,7 @@
 - 관계형 데이터베이스
 - DBMS
 - SQL
-
+----------
 ## 데이터(Data)
 **저장**이나 **처리**에 효율적인 형태로 변환된 정보(information)
 - 매일 초당 2억개의 메일이 전송되며 3만명이 넷플릭스를 시청
@@ -14,7 +14,7 @@
 - 카카오, 네이버 4000억 데이터 센터 구축투자
 - 전 세계 데이터센터 전력 소비량이 남아공 국가 소비전력 추월
 
->> 데이터를 잘 저장하고 관리하는 기술이 필요하다
+> 데이터를 잘 저장하고 관리하는 기술이 필요하다
 
 ### 파일을 이용한 데이터 관리
 - 장점
@@ -31,7 +31,7 @@
   - 무한하게 커질 수 없음
   - 데이터 보안 측면
   - 데이터 무결성 측면
-
+------------------
 ## 데이터베이스
 ### 데이터베이스의 종류
 SQL(관계형 데이터베이스) VS NoSQL(비관계형 데이터베이스)
@@ -42,7 +42,7 @@ SQL(관계형 데이터베이스) VS NoSQL(비관계형 데이터베이스)
 - 채팅, 소셜 관계, 실시간 사진, 메세지 처리, 실시간 추천 등
 - 일반적으로 메인 데이터베이스는 관계형 데이터베이스를 사용
 
-
+---------
 ## 관계형 데이터베이스
 ### 관계형 데이터베이스(RDB)
 - 데이터를 테이블, 행, 열 등으로 나누어 구조화 하는 방식
@@ -59,14 +59,13 @@ SQL(관계형 데이터베이스) VS NoSQL(비관계형 데이터베이스)
   - 필드와 레코드를 사용해 조직된 데이터 요소들의 집합
   - 관계(relation)라고도 부름
 
-
+------------
 ## SQL
 Structured Query Language
 
 관계형 데이터 베이스에서 데이터를 관리하기 위해 사용하는 언어
 
 ### SQL Syntax
-#### SQL Syntax
 ```sql
 SELECT column_name FROM table_name;
 ```
@@ -88,7 +87,7 @@ SELECT column_name FROM table_name;
 ```
 - SELECT statement라 부름
 - SELECT column_name, FROM table_name 2개의 clause로 구성 됨.
-
+----------------
 ## CREATE TABLE
 ```sql
 CREATE TABLE contacts(
@@ -164,7 +163,7 @@ CREATE TABLE contacts(
 - 만약 SQLite가 사용되지 않은 정수를 찾을 수 없으면 SQLITE_FULL 에러가 발생
   - 또한 일부 행을 삭제하고 새 행을 삽이하면 SQLite는 삭제된 행에서 rowid 값을 재사용하려고 시도
 
-
+----------------
 ## ALTER TABLE
 ### 개요
 - "Modify the structure of an existing table"
@@ -195,7 +194,7 @@ ALTER TABLE table_name DROP COLUMN column_name;
     - FK 제약조건에서 사용되는 경우
   - PK인 경우
   - UNIQUE 제약 조건이 있는 경우
-
+---------------
 ## DROP TABLE
 ### 개요
 - Remove a table from the database
