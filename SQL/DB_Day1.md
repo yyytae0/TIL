@@ -36,7 +36,7 @@
 ### 데이터베이스의 종류
 SQL(관계형 데이터베이스) VS NoSQL(비관계형 데이터베이스)
 
-#### 비관계형 데이터베이스
+### 비관계형 데이터베이스
 - 관계형 데이터베이스의 한계를 극복하기 위해 조금 더 유연한 데이터베이스
 - 실제로 많이 쓰이는 데이터베이스로 서브 데이터베이스로 두고 빠른 처리, 확장이 필요한 기능에서 사용하는 경우가 많음
 - 채팅, 소셜 관계, 실시간 사진, 메세지 처리, 실시간 추천 등
@@ -89,8 +89,14 @@ SELECT column_name FROM table_name;
 - SELECT statement라 부름
 - SELECT column_name, FROM table_name 2개의 clause로 구성 됨.
 
-
 ## CREATE TABLE
+```sql
+CREATE TABLE contacts(
+  name TEXT NOT NULL,
+  age INTEGER NOT NULL,
+  email TEXT NOT NULL UNIQUE
+);
+```
 ### SQLite Data Types
 - NULL
   - NULL value
@@ -141,16 +147,22 @@ SELECT column_name FROM table_name;
   - 테이블에서 행의 고유성을 식별하는 데 사용되는 컬럼
   - 각 테이블에는 하나의 기본 키만 있음
   - 암시적으로 NOT NULL 제약 조건이 포함되어 있음
-
-
+  - INTEGER 타입에만 사용가능
+- AUTOINCREMENT
+  - 사용되지 않은 값이나 이전에 삭제된 행의 값을 재사용하는 것을 방지
+  - INTEGER PRIMARY KEY 다음에 작성하면 rowid를 다시 재사용하지 못하도록 함
 
 #### rowid의 특징
 - 테이블을 생성할 때마다 rowid라는 암시적 자동 증가 컬럼이 자동으로 생성됨
 - 테이블의 행을 고유하게 식별하는 64비트 부호 있는 정수 값
 - 테이블에 새 행을 삽입할 때마다 정수 값을 자동으로 할당
   - 값은 1에서 시작
-  - 데이터 삽입 시에 row...
-- ..
+  - 데이터 삽입 시에 rowid 또는 INTEGER PRIMARY KEY 컬럼에 명시적으로 값이 지정되지 않은 경우, SQLite는 테이블에서 가장 큰 rowid보다 하나 큰 다음 순차 정수를 자동으로 할당(AUTOINCREMENT와 관계없이)
+- 만약 INTEGER PRIMARY KEY 키워드를 가진 컬럼을 직접 만들면 이 컬럼은 rowid 컬럼의 별칭(alias)이 됨
+  - 즉, 새 컬럼 이름으로 rowid에 액세스 할 수 있으며 rowid 이름으로도 여전히 액세스 가능
+- 데이터가 최대 값에 도달하고 새 행을 삽입하려고 하면 SQLite는 사용되지 않는 정수를 찾아 사용
+- 만약 SQLite가 사용되지 않은 정수를 찾을 수 없으면 SQLITE_FULL 에러가 발생
+  - 또한 일부 행을 삭제하고 새 행을 삽이하면 SQLite는 삭제된 행에서 rowid 값을 재사용하려고 시도
 
 
 ## ALTER TABLE
@@ -158,3 +170,40 @@ SELECT column_name FROM table_name;
 - "Modify the structure of an existing table"
 - 기존 테이블의 구조를 수정(변경)
 - SQLite의 ALTER TABLE 문을 사용하면 기존 테이블을 변경할 수 있음
+
+### 예시
+```sql
+-- RENAME table
+ALTER TABLE table_name RENAME TO new_table_name;
+-- RENAME column
+ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;
+-- ADD new column
+ALTER TABLE table_name ADD COLUMN column_definition;
+-- DELETE column
+ALTER TABLE table_name DROP COLUMN column_name;
+```
+
+### ALTER TABLE ADD COLUMN
+- 만약 테이블에 기존 데이터가 있을 경우 에러가 발생
+- 이전에 이미 저장된 데이터들은 새롭게 추가되는 컬럼에 값이 없기 때문에 NULL이 작성됨
+- 새로 추가되는 컬럼에 NOT NULL 제약조건이 있기 떄문에 기본 값 없이는 추가될 수없다는 에러 발생
+- 따라서 DEFAULT 제약조건을 사용하여 해결 가능
+
+### ALTER TABLE DROP COLUMN
+- 삭제하지 못하는 경우
+  - 컴럼이 다른 부분에서 참조되는 경우
+    - FK 제약조건에서 사용되는 경우
+  - PK인 경우
+  - UNIQUE 제약 조건이 있는 경우
+
+## DROP TABLE
+### 개요
+- Remove a table from the database
+- 데이터베이스에서 테이블을 제거
+- 존재하지 않는 테이블을 제거하면 SQLite에서 오류가 발생
+
+### 특징
+- 한 번에 하나의 테이블만 삭제할 수 있음
+- 여러 테이블을 제거하려면 여러 DROP TABLE 문을 실행해야 함
+- DROP TABLE 문은 실행 취소하거나 복구할 수 없음
+  - 주의하여 수행 필요
