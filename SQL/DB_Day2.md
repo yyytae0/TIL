@@ -2,7 +2,7 @@
 ## INDEX
 - SQL
 - 정규형과 JOIN
-
+-------------
 ## Grouping Data
 ### Aggregate function
 - 집계 함수
@@ -52,7 +52,7 @@ GROUP BY last_name ORDER BY COUNT(*) DESC;
 SELECT country, avg(age) FROM users
 GROUP BY country;
 ```
-
+--------------------
 ## Changing data
 ### 개요
 - 데이터를 삽입, 수정, 삭제하기
@@ -129,7 +129,7 @@ DELETE FROM classmates WHERE name LIKE '%영%';
 -- 테이블의 모든 데이터 삭제하기
 DELETE FROM classmates;
 ```
-
+-------------------
 ## 정규형
 ### 데이터베이스 정규형
 - 데이터베이스를 구조화하는 방법론
@@ -151,7 +151,7 @@ DELETE FROM classmates;
 ### 제 3정규형
 - 다른 속성에 의존(종속)하는 속성은 따로 분리할 것
 - Transitive Dependency
-
+---------------
 ## JOIN
 두 개 이상의 테이블에서 데이터를 가져와 결합하는 것
 ```sql
