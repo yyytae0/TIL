@@ -3,7 +3,7 @@
 - A many-to-one relationship
 - N:1 (Comment - Article)
 - N:1 (Article - User)
-
+--------------------------------------
 ## A many-to-one relationship
 ### 개요
 - 관계형 데이터베이스에서의 외래 키 속성을 사용해 모델간 N:1 관계 설정하기
@@ -22,6 +22,7 @@
   - 양쪽 모두에서 N:1 관계를 가짐
 
 ### Foreign Key
+#### 개념
 - 외래 키(외부 키)
 - 관계형 데이터베이스에서 다른 테이블의 행을 식별할 수 있는 키
 - 참조되는 테이블의 기본 키(Primary Key)를 가리킴
@@ -36,7 +37,7 @@
 ### 참조 무결성
 - 데이터베이스 관계 모델에서 관련된 2개의 테이블 간의 일관성을 말함
 - 외래 키가 선언된 테이블의 외래 키 속성(열)의 값은 그 테이블의 부모가 되는 테이블의 기본 키 값으로 존재해야 함
-
+----------------------
 ## N:1(Comment - Article)
 ### 개요
 - Comment(N)-Article(1)
@@ -113,7 +114,7 @@ class Comment(models.Model):
 - 작성 후, migration 과정이 필요
 - 선택 옵션이지만 상황에 따라 반드시 작성해야 하는 경우가 생기기도 하는데 이는 추후 자연스럽게 만나볼 예정
 - 작성 후 다시 원래 코드로 복구
-
+-----------------
 ## Comment 구현
 ### CREATE
 ```python
@@ -269,7 +270,7 @@ def comments_delete(request, article_pk, comment_pk):
   - DTL filter - length 사용
   - Queryset API - count() 사용
 - 댓글이 없는 경우 대체 컨텐츠 출력하기
-
+---------------
 ## N:1(Article - User)
 ### 개요
 - Article(N) - User(1)

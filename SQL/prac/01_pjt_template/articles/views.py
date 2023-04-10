@@ -64,6 +64,7 @@ def comments_create(request, pk):
         comment.save()
     return redirect('articles:detail', article.pk)
 
+
 def comments_delete(request, article_pk, comment_pk):
     comment = Comment.objects.get(pk=comment_pk)
     comment.delete()
