@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{person.username}}님의 프로필</h1>
+  <div>
+    팔로잉 : {{person.followings.count}} / 팔로워 : {{person.followers.count}}
+  </div>
+  <form action="{% url 'accounts:follow' person.pk %}" method="POST">
+    {% csrf_token %}
+    {% if request.user in person.followers.all %}
+      <button type="submit" class="btn btn-danger">Unfollow</button>
+    {% else %}
+      <button type="submit" class="btn btn-success">Follow</button>
+    {% endif %}
+  </form>
+  <hr>
+  <h3>{{person.username}}'s 게시글</h3>
+  {% for article in person.article_set.all %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <p class="card-text">{{article.content}}</p>
+        <a href="{% url 'articles:detail' article.pk %}">자세히</a>
+      </div>
+    </div>
+  {% endfor %}
+  <br><hr><br>
+  <h3>{{person.username}}'s 댓글</h3>
+  {% for comment in person.comment_set.all %}
+    <div>{{comment}}</div>
+  {% endfor %}
+  <br><hr><br>
+  <h3>{{person.username}}이 좋아요한 글</h3>
+  {% for article in person.like_articles.all %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <p class="card-text">{{article.content}}</p>
+        <a href="{% url 'articles:detail' article.pk %}">자세히</a>
+      </div>
+    </div>
+  {% endfor %}
+  <hr><br>
+  <a href="{% url 'articles:index' %}">목록</a>
+
+{% endblock content %}
