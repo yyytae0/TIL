@@ -248,6 +248,13 @@ def article_json_3(request):
 ### ModelSerializer
 ```python
 # articles/serializers.py
+from rest_framework import serializers
+from .models import Article
+
+class ArticleListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Article
+    fields = ('id', 'title', 'content',)
 ```
 - ModelSerializer 클래스는 모델 필드에 해당하는 필드가 있는 Serializer 클래스를 자동으로 만들 수 있는 shortcut을 제공
   - Model 정보에 맞춰 자동으로 필드를 생성
