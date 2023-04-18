@@ -353,3 +353,16 @@ numbers.forEach(function(element){
   console.log(element)
 }) // 1, 2, 3
 ```
+
+
+## optional chaining
+```javascript
+const obj = {
+  a:1
+}
+console.log(obj.a.value) // undefined
+console.log(obj.b.value) // error
+console.log(obj.b?.value) // undefined > ? 이전이 undefined이면 이후를 무시
+
+const a = obj.b?.value ?? 'hoho' // 앞이 undefined 이면 'hoho'를 default로
+```
