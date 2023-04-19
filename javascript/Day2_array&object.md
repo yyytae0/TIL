@@ -250,7 +250,7 @@ console.log(this) // window
 - 배열의 길이는 array.length 형태로 접근 가능
 
 #### 배열 메서드 기초
-- array.reverse()
+- **array.reverse()**
   - 원본 배열 요소들의 순서를 반대로 정렬
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
@@ -258,9 +258,9 @@ const numbers = [1, 2, 3, 4, 5]
 numbers.reverse()
 console.log(numbers) // [5, 4, 3, 2, 1]
 ```
-- array.push()
+- **array.push()**
   - 배열의 가장 뒤에 요소 추가
-- array.pop()
+- **array.pop()**
   - 배열의 마지막 요소 제거
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
@@ -271,14 +271,14 @@ console.log(numbers) // [1, 2, 3, 4, 5, 100]
 console.log(number.pop()) // 100
 console.log(numbers) // [1, 2, 3, 4, 5] 
 ```
-- array.includes(value)
+- **array.includes(value)**
   - 배열에 특정 값(value)이 존재하는지 판별 후 true 또는 false 반환
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
 console.log(numbers.includes(1)) // true
 console.log(numbers.includes(100)) // false
 ```
-- array.index0f(value)
+- **array.index0f(value)**
   - 배열에 특정 값이 존재하는지 확인 후 가장 첫 번째로 찾은 요소의 인덱스 반환
   - 만약 해당 값이 없을 경우 -1 반환
 ```javascript
@@ -291,7 +291,7 @@ console.log(numbers.index0f(100)) // -1
 - 배열을 순회하며 특정로직을 수행하는 메서드
 - 메서드 호출 시 인자로 callback 함수를 받는 것이 특징
   - callback 함수: 어떤 함수의 내부에서 실행될 목적으로 인자를 넘겨받는 함수
-- forEach
+- **forEach**
   ```javascript
   array.forEach(function(element, index, array){
     // do something
@@ -303,7 +303,7 @@ console.log(numbers.index0f(100)) // -1
   - index : 배열 요소의 인덱스
   - array : 배열 자체
   - 반환값(return) 없음
-- map
+- **map**
   ```javascript
   array.map(function(element, index, array){
     // do something
@@ -313,7 +313,7 @@ console.log(numbers.index0f(100)) // -1
   - 배열의 각 요소에 대해 콜백 함수를 한 번씩 실행
   - 콜백 함수의 반환 값을 요소로 하는 새로운 배열 반환
   - 기존 배열 전체를 다른 형태로 바꿀 때 유용(forEach + return)
-- filter
+- **filter**
   ```javascript
   array.filter(function(element, index, array){
     // do something
@@ -321,9 +321,9 @@ console.log(numbers.index0f(100)) // -1
   ```
   - array.filter(callback(element[, index[, array]]))
   - 배열의 각 요소에 대해 콜백 함수를 한번씩 실행
-  - 콜백 함수의 반환 값이 true인 요소들만 모아서 새로우 ㄴ배열 반환
+  - 콜백 함수의 반환 값이 true인 요소들만 모아서 새로운 배열 반환
   - 기존 배열의 요소들을 필터링할 때 유용
-- reduce
+- **reduce**
   ```javascript
   array.reduce(function(acc, element, index, array){
     // do something
@@ -348,7 +348,7 @@ console.log(numbers.index0f(100)) // -1
   // 평균
   const sum = tests.reduce((total, x) => total + x, 0) / tests.length
   ```
-- find
+- **find**
   ```javascript
   array.find(function(element, index, array){
     // do something
@@ -358,7 +358,7 @@ console.log(numbers.index0f(100)) // -1
   - 배열의 각 요소에 대해 콜백 함수를 한 번씩 실행
   - 콜백 함수의 반환 값이 true면, 조건을 만족하는 첫번째 요소를 반환
   - 찾는 값이 배열에 없으면 undefined 반환
-- some
+- **some**
   ```javascript
   array.some(function(element, index, array){
     // do something
@@ -368,7 +368,7 @@ console.log(numbers.index0f(100)) // -1
   - 배열의 요소 중 하나라도 주어진 판별 함수를 통과하면 true 반환
   - 모든 요소가 통과하지 못하면 거짓 반환
   - 빈 배열은 항상 false 반환
-- every
+- **every**
   ```javascript
   array.every(function(element, index, array){
     // do something

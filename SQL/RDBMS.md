@@ -4,9 +4,6 @@
 - 특정 기업이나 조직 또는 개인이 필요에 의해 데이터를 일정한 형태로 저장해 놓은 것
 - 보다 효율적인 데이터 관리 뿐만 아니라 에기치 못한 사건으로 인한 데이터의 손상을 피하고, 필요시 필요한 데이터를 복구하기 위한 강력한 기능의 소프트웨어 시스템을 DBMS(Database Management System)이라 한다.
 
-
-
-
 ## RDBMS
 
 - 관계형 데이터베이스 시스템(Relational)
@@ -14,13 +11,6 @@
   - 데이터를 테이블 단위로 관리  > 하나의 테이블은 여러개의 column으로 구성
   - 중복 데이터를 최소화  > 데이터 수정 시 문제가 발생할 가능성이 높아짐 (정규화)
   - 여러 테이블에 분산되어 있는 데이터를 검색 시 테이블 간의 관계를 이용하여 필요한 데이터를 검색
-
-### RDBMS의 저장 구조
-
-- Table
-  - Column Name, Column, Row
-
-***
 
 
 ## SQL(Structured Query Language)
@@ -37,8 +27,6 @@
   - UPDATE
   - DELETE
   - SELECT : Database로 부터 Data를 검색
-  - COMMIT : 수행한 변경을 관리
-  - ROLLBACK : 수행한 변경을 관리
 - DDL(Data Definition Language) : 테이블로부터 데이터 구조를 생성, 변경, 제거한다.
   - CREATE
   - ALTER
@@ -47,6 +35,22 @@
 - DCL(Data Control Language) : Database와 그 구조에 대한 접근 권한을 제공하거나 제거한다.
   - GRANT
   - REVOKE
+- TCL(Transaction Control Language) : DML에 의해 조작된 결과를 작업단위(트랜잭션) 별로 관리, 제어한다.
+  - COMMIT
+  - ROLLBACK
+
+## 테이블
+어느 특정한 주제와 목적으로 만들어지는 일종의 집합
+
+
+## ERD(Entity Relationship Diagram)
+테이블 내부의 관계, 테이블간의 연관성이나 관계를 직관적으로 표시하는 수단
+
+
+
+
+
+
 
 
 ### DDL

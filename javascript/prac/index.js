@@ -1,7 +1,8 @@
-function check(b) {
-  b = 2
+function findQueens(n) {
+	// 이곳에 작성합니다.
+
+	return answer
 }
 
-let a = 1
-check(a)
-console.log(a)
+lst = [0]
+console.log(lst)
