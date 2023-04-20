@@ -17,7 +17,7 @@
 <body>
   <h1>selector test</h1>
 
-  <!-- <button id="event-button">커져라!</button> -->
+  <button id="event-button">커져라!</button>
 
   <ul id="list">
     <li class="red">apple</li>
@@ -26,5 +26,45 @@
     <li>grape</li>
     <li class="red">strawberry</li>
   </ul>
+  <script>
+    const fruit = document.querySelector('#list')
+    const mango = document.createElement('li')
+    mango.innerText = 'mango'
+    // fruit.append(mango)
+    fruit.appendChild(mango)
+    
+    const melon = document.createElement('li')
+    melon.innerText = 'melon'
+    fruit.prepend(melon)
+    
+    const kiwi = document.createElement('li')
+    kiwi.innerText = 'kiwi'
+    const banana = document.querySelector('#banana')
+    fruit.insertBefore(kiwi, banana)
+    /*
+    const red = document.querySelectorAll('.red')
+    red.forEach(element => {
+      element.remove()
+    })
+
+    const lst = document.querySelectorAll('li')
+
+    lst.forEach(element =>{
+      element.classList.add('big')
+    })
+    */
+    const button = document.querySelector('#event-button')
+    button.addEventListener('click', () => {
+      changeFont()
+    })
+
+    function changeFont(){
+      console.log('실행')
+      const lst = document.querySelectorAll('li')
+      lst.forEach(element => {
+        element.classList.add('big')
+      })
+    }
+  </script>
 </body>
 </html>

@@ -73,9 +73,8 @@
 - 우리는 'DOM의 주요 객체'들을 활용하여 문서를 조작하거나 특정 요소들을 얻을 수 있음
 
 #### DOM 주요 객체
-- window
 - document
-- navigator, location, history, screen 등
+  - navigator, location, history, screen 등
 
 #### window object
 - DOM을 표현하는 창
@@ -121,10 +120,13 @@ window.print()
 ```javascript
 console.log(document.querySelector('#title'))
 // <h1 id="title">DOM 조작</h1>
+
 console.log(document.querySelectorAll('.text'))
 // NodeList(2) [p.text, p.text]
+
 console.log(document.querySelector('.text'))
 // <p class="text">querySelector</p>
+
 console.log(document.querySelector('body > ul > li'))
 // NodeList(2) [li, li]
 ```
@@ -138,7 +140,7 @@ console.log(document.querySelector('body > ul > li'))
 
 ### 조작 관련 메서드
 #### 생성
-`document.createElement(tagName)
+`document.createElement(tagName)`
 - 작성한 tagName의 HTML 요소를 생성하여 반환
 
 #### 입력
@@ -163,12 +165,16 @@ console.log(document.querySelector('body > ul > li'))
 ```javascript
 // h1 요소를 생성
 const title = document.createElement('h1')
+
 // 텍스트 추가
 title.innerText = 'DOM 조작'
+
 // 선택자로 div 태그를 선택
 const div = document.querySeletor('div')
+
 // div 태그의 자식 요소로 추가
 div.append(appendChild(title))
+
 // div의 h1 요소 삭제
 div.removeChild(title)
 ```
@@ -183,20 +189,25 @@ div.removeChild(title)
 - 속성이 이미 존재하면 값을 갱신, 존재하지 않으면 지정된 이름과 값으로 새 속성을 추가
 - 만약 기존 속성은 유지한 채로, 새로운 값을 추가하고자 한다면
   - `Element.classList`, `Element.style` 등을 통해 직접적으로 해당 요소의 각 속성들을 제어할 수 있음
+  - `.add`, `.remove`, `.toggle` 등
 
 ```javascript
 // a tag 생성 및 컨텐츠 추가
 const aTag = document.createElement('a')
 aTag.innerText = '구글'
+
 // a 태그의 href 속성 추가
 aTag.setAttribute('href', 'https://google.com')
 console.log(aTag.getAttribute('href'))
+
 // div 태그의 자식 태그로 a 태그 추가
 const div = document.querySelector('div')
 div.appendChild(aTag)
+
 // h1 tag 선택 및 클래스 목록 조회
 const h1 = document.querySelector('h1')
 console.log(h1.classList)
+
 // 클래스가 존재한다면 제거하고 false 반환
 // 존재하지 않으면 클래스를 추가하고 true 반환
 h1.classList.toggle('blue')
