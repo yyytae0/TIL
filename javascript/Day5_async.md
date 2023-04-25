@@ -94,15 +94,19 @@
 <script>
   console.log('고양이는 야옹')
   const catImageSearchURL = 'https://api.thecatapi.com/v1/images/search'
-      
-  axios.get(catImageSearchURL)
-    .then((response) => {
-      console.log(response.data)
-    })
-    .catch((error) => {
-      console.log('실패했다옹')
-    })
-  console.log('야옹야옹')
+  const btn = document.querySelector('button')
+  btn.addEventListener('click', function () {
+    axios.get(catImageSearchURL)
+      .then((response) => {
+        imgElem = document.createElement('img')
+        imgElem.setAttribute('src', response.data[0].url)
+        document.body.appendChild(imgElem)
+      })
+      .catch((error) => {
+        console.log('실패했다옹')
+      })
+      console.log('야옹야옹')
+  })  
 </script>
 ```
 - 동기식 코드는 위에서부터 순서대로 처리가 되기 때문에 첫번째 print가 출력되고 이미지를 가져오는 처리를 기다렸다가 다음 print가 출력되는 반면
