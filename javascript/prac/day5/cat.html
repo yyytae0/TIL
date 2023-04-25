@@ -10,6 +10,12 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
+    /*
+    axios.get('https://cdn2.thecatapi.com/images/1a.gif')
+    .then((res) => console.log)
+    // .catch((err) => console.error(err))
+    */
+
     const nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     const alphas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     nums.forEach(function(num){
@@ -19,6 +25,13 @@
         imgElem.setAttribute('src', catImageURL)
         document.body.appendChild(imgElem)
       })
+    })
+    let catImageURL = `https://cdn2.thecatapi.com/images/ff.gif`
+    imgElem = document.createElement('img')
+    imgElem.setAttribute('src', catImageURL)
+    document.body.appendChild(imgElem)
+    imgElem.addEventListener('error',function(e){
+      e.target.remove()
     })
   </script>
   
