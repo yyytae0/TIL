@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+  <button>버튼!</button>
+  <div class="row row-cols-2 row-cols-md-4 g-6" id="cardContainer">
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script>
+    const dogSearchURL = "https://dog.ceo/api/breeds/image/random"
+    const btn = document.querySelector('button')
+    const cardContainer = document.querySelector('#cardContainer')
+    btn.addEventListener('click', () => {
+      for (let step = 0; step < 100; step++){
+        axios.get(dogSearchURL)
+        .then(request => {
+          const div1 = document.createElement('div')
+          div1.setAttribute('class', 'col')
+          cardContainer.appendChild(div1)
+          const div2 = document.createElement('div')
+          div2.setAttribute('class', 'card')
+          div1.appendChild(div2)
+          imgElem = document.createElement('img')
+          imgElem.setAttribute('src', request.data.message)
+          imgElem.setAttribute('class', 'card-img-top')
+          div2.appendChild(imgElem)
+          const divBreed = document.createElement('div')
+          divBreed.setAttribute('class', 'card-body')
+          div2.appendChild(divBreed)
+          const breedText = document.createElement('h5')
+          breedText.setAttribute('class', 'card-title')
+          breedText.innerText = request.data.message.split('/')[4]
+          divBreed.appendChild(breedText)
+        })
+      }
+    })
+  </script>
+</body>
+</html>

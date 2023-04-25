@@ -43,6 +43,8 @@
 - [Intro](javascript/Day1_javascript.md)
 - [array&object](javascript/Day2_array%26object.md)
 - [DOM](javascript/Day3_DOM.md)
+- [event](javascript/Day4_event.md)
+- [asynchronous](javascript/Day5_async.md)
  
 ## SQL
 - [DB](SQL/DB_Day1.md)

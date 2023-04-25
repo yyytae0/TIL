@@ -1,6 +1,9 @@
 # JavaScript
 ## INDEX
-
+- Event
+  - Event란?
+  - Event 등록하기
+  - Event 전파
 
 ## Event
 ### 개요
@@ -13,23 +16,26 @@
 - 네트워크 활동이나 사용자와의 상호작용 같은 사건의 발생을 알리기 위한 객체
 - 이벤트가 발생했을 때 생성되는 객체
 - Event 발생
-  - 마우스를 클릭
-  - ㄹㄴㅇㅁ
+  - 마우스를 클릭하거나 키보드를 누르는 등 사용자 행동으로 발생할 수도 있고
+  - 특정 메서드를 호출하여 프로그래밍적으로도 만들어 낼 수 있음
 - DOM 요소는 Event를 받고(**수신**)
 - 받은 Event를 **처리**할 수 있음
   - Event 처리는 주로 addEventListener()메서드를 통해 Event 처리기(Event handler)를 다양한 html 요소에 **부착**해서 처리함
 
 ### Event handler
-- 특별한 함수가 아닌 일반적인
+- 특별한 함수가 아닌 일반적인 JavaScript Function을 정의하여 사용
+- 웹 페이지에서 발생하는 Event에 대해 반응하여 동작하는 함수를 지칭
+- Event handler 함수는 이벤트가 발생했을 때 호출되며, Event 객체를 매개 변수로 전달 받음
 - addEventListener()
   - **대상**에 **특정 Event**가 발생하면 ,**할 일**을 등록하자
   - **EventTarget**.addEventlistener(**type**, **handler function**)
   - 지정한 Event가 대상에 전달될 때마다 호출할 함수를 설정
-  - Event...
+  - Event를 지원하는 모든 객체(Element, Document, Window 등)를 대상(EventTarget)으로 지정 가능
   - type ex) input, click, submit...
   - handler function
     - 지정된 타입의 Event를 수신할 객체
-    - Java
+    - JavaScript function 객체(콜백함수)여야 함
+    - 콜백 함수는 발생한 Event의 데이터를 가진 Event 객체를 유일한 매개변수로 받음
 
 ### Event 전파와 취소
 #### Event 전파란?
