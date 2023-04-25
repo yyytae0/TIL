@@ -74,8 +74,8 @@
 - node 환경은 npm을 이용해서 설치 후 사용할 수 있고, browser 환경은 CDN을 이용해서 사용할 수 있음
 
 ### Axios 기본 구조
-```javascript
-<srcript src="axios cdn..."></script>
+```html
+<script src="axios cdn..."></script>
 <script>
   axios.get('요청할 URL')
     .then(성공하면 수행할 콜백함수)
@@ -87,8 +87,23 @@
 - catch를 이용해서 실패하면 수행할 로직을 작성
 
 #### 고양이 사진 가져오기
-```javascript
+```html
+<button>야옹아 이리온</button>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  console.log('고양이는 야옹')
+  const catImageSearchURL = 'https://api.thecatapi.com/v1/images/search'
+      
+  axios.get(catImageSearchURL)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log('실패했다옹')
+    })
+  console.log('야옹야옹')
+</script>
 ```
 - 동기식 코드는 위에서부터 순서대로 처리가 되기 때문에 첫번째 print가 출력되고 이미지를 가져오는 처리를 기다렸다가 다음 print가 출력되는 반면
 - 비동기식 코드(JavaScript)는 바로 처리가 가능한 작업(console.log)은 바로 처리하고, 오래 걸리는 작업인 이미지를 요청하고 가져오는 일은 요청을 보내 놓고 기다리지 않고 다음 코드로 진행 후 완료가 된 시점에 결과 출력이 진행됨
