@@ -45,6 +45,7 @@
 - [DOM](javascript/Day3_DOM.md)
 - [event](javascript/Day4_event.md)
 - [asynchronous](javascript/Day5_async.md)
+- [AJAX](javascript/Day6_AJAX.md)
  
 ## SQL
 - [DB](SQL/DB_Day1.md)
