@@ -41,7 +41,7 @@
   - url에 작성할 user pk는 어떻게 작성해야 할까?
   - csrftoken은 어떻게 보내야 할까?
 
-**data-* attributes**
+**data-\* attributes**
 - 사용자 지정 데이터 특성을 만들어 임의의 데이터를 HTML과 DOM사이에서 교환할 수 있는 방법
 - ex) data-test-value라는 이름의 특성을 지정했다면 JavaScript에서는 element.dataset.testValue로 접근할 수 있음
 - 속성명 작성 시 주의사항

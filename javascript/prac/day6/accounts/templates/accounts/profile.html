@@ -60,11 +60,9 @@
         const followBtn = document.querySelector('#follow-form > input[type=submit]')
         const followersCountTag = document.querySelector('#followers-count')
         const followingsCountTag = document.querySelector('#followings-count')
-        const followersCount = response.data.followers_count
-        const followingsCount = response.data.followings_count
 
-        followersCountTag.innerText = followersCount
-        followingsCountTag.innerText = followingsCount
+        followersCountTag.innerText = response.data.followers_count
+        followingsCountTag.innerText = response.data.followings_count
 
         if (isFollowed === true){
           followBtn.value = 'unfollow'
