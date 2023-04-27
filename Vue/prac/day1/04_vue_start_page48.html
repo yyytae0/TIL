@@ -7,10 +7,26 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{movie}}</p>
+  </div>
 
   <!-- Vue CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '',
+        movie: '아바타',
+      },
+      methods:{
+        print: function(){
+          console.log(this.movie)
+        }
+      }
+    })
   </script>
 </body>
 </html>

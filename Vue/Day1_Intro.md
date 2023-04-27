@@ -133,7 +133,8 @@
 ### MVVM Pattern
 - 소프트웨어 아키텍처 패턴의 일종
 - 마크업 언어로 구현하는 그래픽 사용자 인터페이스(view)의 개발을 Back-end(model)로부터 분리시켜 view가 어느 특정한 모델 플랫폼에 종속되지 않도록 함
-![mvvm pattern](img/mvvp.png)
+
+![mvvm pattern](img/mvvp.PNG)
 - View - 우리 눈에 보이는 부분 = DOM
 - Model - 실제 데이터 = JSON
 - View Model(Vue)
