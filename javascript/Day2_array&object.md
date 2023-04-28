@@ -268,7 +268,7 @@ const numbers = [1, 2, 3, 4, 5]
 numbers.push(100)
 console.log(numbers) // [1, 2, 3, 4, 5, 100]
 
-console.log(number.pop()) // 100
+console.log(numbers.pop()) // 100
 console.log(numbers) // [1, 2, 3, 4, 5] 
 ```
 - **array.includes(value)**
@@ -278,13 +278,13 @@ const numbers = [1, 2, 3, 4, 5]
 console.log(numbers.includes(1)) // true
 console.log(numbers.includes(100)) // false
 ```
-- **array.index0f(value)**
+- **array.indexOf(value)**
   - 배열에 특정 값이 존재하는지 확인 후 가장 첫 번째로 찾은 요소의 인덱스 반환
   - 만약 해당 값이 없을 경우 -1 반환
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
-console.log(numbers.index0f(3)) // 2
-console.log(numbers.index0f(100)) // -1
+console.log(numbers.indexOf(3)) // 2
+console.log(numbers.indexOf(100)) // -1
 ```
 
 #### 배열 메서드 심화
@@ -306,7 +306,7 @@ console.log(numbers.index0f(100)) // -1
 - **map**
   ```javascript
   array.map(function(element, index, array){
-    // do something
+    return // do something
   })
   ```
   - array.map(callback(element[, index[, array]]))
