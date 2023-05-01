@@ -1,52 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<html>
+  <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta charset="utf8">
+  <title>Hello, world</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
 </head>
 <body>
-  <div id="text1">
-    <p id="message1">첫 번째 입력 : {{ message }}</p>
-    <input type="text" v-model="message">
-  </div>
-  <div id="text2">
-    <p id="message2">두 번째 입력 : {{ message }}</p>
-    <input type="text" v-model="message">
-  </div>
-  <div id="result">
-    <p>합산 입력 : {{ result }}</p>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-    // CODE HERE
-    const text1 = new Vue({
-      el: '#text1',
-      data: {
-        message: '',
-      }
-    })
+<div id="app">
+  <h1>회문 검사기</h1>
+  <input type="text" v-model="msg">
+  <button @click="check">확인하기</button>
+</div>
 
-    const text2 = new Vue({
-      el: '#text2',
-      data: {
-        message: '',
-      }
-    })
-
-    const result = new Vue({
-      el: '#result',
-      data: {
-        
-      },
-      computed:{
-        result(){
-          return text1.message + text2.message
+<script type="text/javascript">
+  var app = new Vue({
+    el : '#app',
+    data: {
+      msg: '',
+    },
+    methods: {
+      check: function () {
+        if (this.msg === ''){
+          alert('입력값이 없습니다!')
+        }else if(this.msg === this.msg.split('').reverse().join('')){
+          alert('회문입니다!')
+        }else{
+          alert('회문이 아닙니다!')
         }
       }
-    })
-  </script>
+    }
+  });
+</script>
+
 </body>
-</html>
