@@ -24,16 +24,24 @@
 
 ### Vue CLI Quick Start
 - 설치
-  `$ npm install -g @vue/cli`
+```
+$ npm install -g @vue/cli
+```
 - 프로젝트 생성
   - vscode terminal에서 진행
-  `$ vue create vue-cli`
+  ```
+  $ vue create vue-cli
+  ```
 - Vue 버전 선택
 - 출력된 명령어 실행
   - 프로젝트 디렉토리로 이동
-    `$ cd vue-cli`
+    ```
+    $ cd vue-cli
+    ```
   - 프로젝트 실행
-    `$ npm run serve`
+    ```
+    $ npm run serve
+    ```
   - 주소 ctrl + 클릭
 
 ### Vue CLI 프로젝트 구조
@@ -166,3 +174,56 @@
   - 이게 바로 SPA
 
 #### 실습
+- MyComponent.vue
+  - src/components/ 안에 생성
+  - script에 이름 등록
+  - template에 요소 추가
+  - 주의) templates 안에는 반드시 하나의 요소만 추가 가능
+    - 비어 있어도 안됨
+    - 해당 요소 안에 추가 요소를 작성해야 함
+```vue
+<template>
+  <div class="border">
+    <h1>This is Component</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MyComponent',
+}
+</script>
+```
+- component 등록 3단계
+  - 불러오기
+    - import {instance name} from {위치}
+    - instacne name은 instance 생성 시 작성한 name
+    - @는 src의 shortcut
+    - .vue 생략 가능
+  - 등록하기
+    - 닫는 태그만 있는 요소처럼 사용
+  - 사용하기
+```vue
+// App.vue
+
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MyComponent />  <!-- 3. 사용한다 -->
+  </div>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import MyComponent from './components/MyComponent.vue' // 1. 불러온다
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    MyComponent,  // 2. 등록한다
+  }
+}
+</script>
+```
