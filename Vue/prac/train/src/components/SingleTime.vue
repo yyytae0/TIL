@@ -1,6 +1,6 @@
 <template>
   <button 
-    @click="select" 
+    @click="select"
     :class="{green: isSelected, gray: !isSelected}"
   >{{singleTime}}</button>
 </template>
