@@ -45,6 +45,9 @@ export default {
       this.cnt -= 1
       this.selected.splice(this.selected.indexOf(time),1)
     }
+  },
+  created(){
+    console.log('created time')
   }
 }
 </script>

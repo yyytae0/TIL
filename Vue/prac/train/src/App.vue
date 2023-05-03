@@ -2,17 +2,28 @@
   <div id="app">
     <h1>버튼 박스 제작</h1>
     <MainBox />
+    <TrainOne @event-name="something"/>
   </div>
 </template>
 
 <script>
 import MainBox from '@/components/MainBox.vue'
+import TrainOne from '@/components/TrainOne.vue'
 // import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    MainBox
+    MainBox,
+    TrainOne
+  },
+  methods: {
+    something(a){
+      console.log(a)
+    }
+  },
+  created(){
+    console.log('created app')
   }
 }
 </script>

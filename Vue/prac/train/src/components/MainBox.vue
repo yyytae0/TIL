@@ -12,6 +12,9 @@ export default {
   name: 'MainBox',
   components: {
     TimeSelect
+  },
+  created(){
+    console.log('created mainbox')
   }
 }
 </script>
