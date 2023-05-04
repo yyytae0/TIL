@@ -64,12 +64,19 @@ $ vue add vuex  // Vue CLI를 통해 vuex plugin 적용
   - 개별 component가 관리하던 data를 중앙 저장소(Vuex Store의 state)에서 관리하게 됨
 - state의 데이터가 변화하면 해당 데이터를 사용(공유)하는 component도 자동으로 다시 렌더링
 - `$store.state`로 state 데이터에 접근
+  - `$store.state`로 바로 접근하기 보다는 computed에 정의 후 접근하는 것을 권장
 
 #### Mutations
-- 실제로 state를 변경하는 유일한 방법
-- vue 인스턴스의 methods에 해당하지만 Mutations에서 호출되는 핸들러(handler) 함수는 반드시 동기적이어야 함
+- **실제로 state를 변경하는 유일한 방법**
+- vue 인스턴스의 methods에 해당하지만 Mutations에서 호출되는 핸들러(handler) 함수는 반드시 **동기적** 이어야 함
   - 비동기 로직으로 mutations를 사용해서 state를 변경하는 경우, state의 변화의 시기를 특정할 수 없기 때문
 - 첫 번째 인자로 state를 받으며, component 혹은 Actions에서 `commit()` 메서드로 호출됨
+- `context.commit(A, B)`
+  - A: 호출하고자 하는 mutations 함수
+  - B: 넘겨주는 데이터(payLoad)
+- `mutation(state, payload){}`
+  - 첫 번째 인자는 state
+  - 두 번째 인자는 payload
 > mutation, action에서 호출되는 함수를 handler 함수라고 함
 
 #### Actions
@@ -78,6 +85,16 @@ $ vue add vuex  // Vue CLI를 통해 vuex plugin 적용
 - context 객체를 인자로 받으며, 이 객체를 통해 store.js의 모든 요소와 메서드에 접근할 수 있음
   - 즉, state를 직접 변경할 수 있지만 하지 않아야 함
 - component에서 `dispatch()` 메서드에 의해 호출됨
+- `this.$store.dispatch(A, B)`
+  - A: 호출하고자 하는 actions 함수
+  - B: 넘겨주는 데이터(payLoad)
+- `action(context, payload){}`
+  - actions의 첫 번째 인자는 context
+    - context는 store의 전반적인 속성을 모두 가지고 있으므로 context.state와 context.getters를 통해 mutations를 호출하는 것이 모두 가능
+    - dispatch()를 사용해 다른 actions도 호출할 수 있음
+  - actions의 두 번째 인자는 payload
+    - 넘겨준 데이터를 받아서 사용
+  - > 단, actions에서 state를 직접 조작하는 것은 삼가야함
 
 #### Mutations & Actions
 - vue component의 methods 역할이 vuex에서는 아래와 같이 분화됨
@@ -92,7 +109,12 @@ $ vue add vuex  // Vue CLI를 통해 vuex plugin 적용
   - state의 원본 데이터를 건들지 않고 계산된 값을 얻을 수 있음
 - computed와 마찬가지로 getters의 결과는 캐시(cache) 되며, 종속된 값이 변경된 경우에만 재계산됨
 - getters에서 계산된 값은 state에 영향을 미치지 않음
-- 첫 번째 인자로 state, 두 번째 인자로 getter를 받음
+- `getter(state, getter){}`
+  - 첫 번째 인자는 state
+  - 두 번째 인자는 getters
+- getters 역시 state와 마찬가지로 computed에 정의해서 사용하는 것을 권장
+  - `return this.$store.getters.getter`
+
 
 #### 정리
 - state
