@@ -5,12 +5,12 @@
   - Plugins
   - Component Binding Helper
   - modules
-
+------------
 ## Vuex Advanced
 - Vuex로 관리중인 상태를 로컬에 저장하기
   - 관련 plugin 알아보기
 - Vuex Helper method 알아보기
-
+------------
 ## Local Storage
 ### 상태 유지하기
 - 현재 앱을 재실행 하거나, 새로 고침을 하면 초기 값으로 돌아감
@@ -57,7 +57,7 @@ const parsedNumbers = JSON.parse(numbers)
 
 console.log(typeof parsedNumbers)
 ```
-
+--------------
 ## plugins
 - Vuex store에 추가적인 기능을 제공하는 확장 기능
 - 일반적으로 state의 변화를 감지해, 어플리케이션의 성능을 최적화하는 목적을 가짐
@@ -80,8 +80,30 @@ console.log(typeof parsedNumbers)
     ]
   })
   ```
+- 추가 옵션을 사용하여 필요에 따라 저장 방식을 변경할 수 있음
+```javascript
+const persistedState = createpersistedState({
+  // key를 변경
+  key: 'my-app',
+  // 저장 위치를 변경
+  storage: window.localStorage,
+  // 상태중 일부만 저장
+  reducer: state => ({
+    message: state.message
+  })
+})
 
-
+export default new Vuex.Store({
+  plugins: [
+    persistedState
+  ],
+  state: {
+    message: 'message in store',
+    age: 30
+  }
+})
+```
+------------
 ## Vuex Binding Helper
 - Vuex store의 state, mutations, actions 등을 간단하게 사용할 수 있도록 만들어진 헬퍼 함수
 - mapState, mapActions와 같은 형식으로 사용
