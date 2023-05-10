@@ -18,7 +18,7 @@ export default {
   },
   data(){
     return {
-      VUE_APP_YOUTUBE_API_KEY: 'AIzaSyBRM5oHn_oYiNPrTt2G8481Vl4X6gNEEQg',
+      VUE_APP_YOUTUBE_API_KEY: '',
       query: '코딩노래',
       videoHtml: '',
       id: ''
