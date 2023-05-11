@@ -106,5 +106,5 @@ CORS_ALLOWED_ORIGINS = [
   'http://localhost:8080',
 ]
 # 만약 모든 Origin을 허용하고자 한다면
-# CORS_ALLOWED_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 ```
